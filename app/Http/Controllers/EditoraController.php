@@ -25,4 +25,22 @@ class EditoraController extends Controller
     	   Editora::create(request()->all());
            return redirect('/editoras');
     }
+
+    public function show(Editora $editora) {
+    	   return view('editora.show', compact('editora'));
+    }
+
+    public function edicao(Editora $editora) {
+    	   return view('editora.edicao', compact('editora'));
+    }
+
+    public function atualiza(Editora $editora) {
+    	   $this->validate(request(), [
+	   	    'nome' => 'required|min:2|max:255',
+	   	    'email' => 'required|email'
+	   ]);
+    	   $editora->fill(request()->all());
+    	   $editora->save();
+	   return redirect("/editoras/$editora->id");
+    }
 }

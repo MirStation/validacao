@@ -30,8 +30,8 @@
 	  </div>
 	  @endif
 	  <form action="/editoras" method="POST">
-	  	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-	  	<div class="form-group">
+		{{ csrf_field() }}
+		<div class="form-group">
 		     <label for="nome">Nome</label>
 		     <input type="text" class="form-control" name="nome" id="nome"/>
 		</div>
