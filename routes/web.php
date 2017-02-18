@@ -35,6 +35,8 @@ Route::get('/livros/cria', 'LivroController@cria');
 
 Route::post('/livros', 'LivroController@armazena');
 
+Route::get('/livros/{livro}', 'LivroController@show');
+
 Route::get('/livros/{livro}/edicao', 'LivroController@edicao');
 
-Route::patch('/livros', 'LivroController@atualiza');
+Route::patch('/livros/{livro}', 'LivroController@atualiza');
